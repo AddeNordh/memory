@@ -20,10 +20,16 @@ initInput.addEventListener("keyup", () => {
 			initInput.classList.add("has-content");
 			errormsg.innerHTML = "Insufficient number of cards";
 		}
+
 		else {
-			initInput.classList.remove("has-content");
+			initInput.classList.add("has-content");
 			ready = true;
 			errormsg.innerHTML = "Good to go!";
+		}
+
+		if (initInput.value == "" || initInput.value == 0) {
+			initInput.classList.remove("has-content");
+
 		}
 });
 
