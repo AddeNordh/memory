@@ -2,7 +2,6 @@ function Game(length) {
 
     this.cards = [];
     this.values = [];
-
     this.value = Math.floor((Math.random()) + Math.random());
 
     this.init = () => {
@@ -53,6 +52,9 @@ Game.prototype.shuffle = function(cards) {
 function Cards(cards) {
 
     this.cards = cards;
+	this.container = document.createElement("div");
+	this.container.setAttribute("class","card-container");
+	document.body.appendChild(this.container);
 
     for (let card of this.cards) {
         this.setCard(card)
@@ -60,7 +62,6 @@ function Cards(cards) {
 }
 
 Cards.prototype.setCard = function(card) {
-
-    container.appendChild(card)
+    this.container.appendChild(card)
 
 }
