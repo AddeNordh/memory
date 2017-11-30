@@ -17,9 +17,11 @@ const cardClick = (cards) => {
 initInput.addEventListener("keyup", () => {
 		if (initInput.value % 2 != 0 || initInput.value == "" || initInput.value == 0) {
 			ready = false;
+			initInput.classList.add("has-content");
 			errormsg.innerHTML = "Insufficient number of cards";
 		}
 		else {
+			initInput.classList.remove("has-content");
 			ready = true;
 			errormsg.innerHTML = "Good to go!";
 		}
@@ -28,7 +30,8 @@ initInput.addEventListener("keyup", () => {
 start.addEventListener("click", () => {
 
     if (ready) {
-		wrapper.style.display = "none";
+		wrapper.style.left = "-100%";
+		wrapper.style.opacity = "0";
         let totalCards = initInput.value;
 
         let game = new Game();
