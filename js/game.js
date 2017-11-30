@@ -48,6 +48,4 @@ Game.prototype.restart = function() {
 	this.values = [];
 	this.count = 1;
 	this.value = Math.floor((Math.random()) + Math.random());
-	wrapper.style.left = "0%";
-	wrapper.style.opacity = "1";
 }

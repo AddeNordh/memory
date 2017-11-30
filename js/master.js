@@ -4,6 +4,7 @@ const container = document.getElementById('wrapper');
 const initInput = document.getElementsByClassName('init-game')[0];
 const start = document.getElementById('button');
 const errormsg = document.getElementById('error-msg');
+const restartBtn = document.getElementsByClassName('reset-wrapper')[0];
 let ready;
 let game;
 let cards;
@@ -43,6 +44,7 @@ initInput.addEventListener("keyup", () => {
 start.addEventListener("click", () => {
 
     if (ready) {
+		restartBtn.style.opacity = 1;
 		wrapper.style.left = "-100%";
 		wrapper.style.opacity = "0";
         totalCards = initInput.value;
@@ -62,7 +64,15 @@ start.addEventListener("click", () => {
     }
 });
 
+restartBtn.addEventListener("click", () => {
+	game.restart();
+	cards.restart();
+})
+
 const restart = () => {
+	 restartBtn.style.opacity = 0;
+  	 container.style.left = "0%";
+     container.style.opacity = "1";
 	 initInput.value = "";
 	 initInput.focus();
 	 ready = null;

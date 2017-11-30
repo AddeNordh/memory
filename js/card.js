@@ -87,8 +87,6 @@ Cards.prototype.restart = function() {
 		document.body.removeChild(this.container);
 	},500);
 	this.pared = 0;
-	restart();
 	this.cards = [];
-	let g = new Game();
-	g.restart();
+	restart();
 }
