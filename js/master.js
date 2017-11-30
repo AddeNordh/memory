@@ -5,6 +5,10 @@ const initInput = document.getElementsByClassName('init-game')[0];
 const start = document.getElementById('button');
 const errormsg = document.getElementById('error-msg');
 let ready;
+let game;
+let cards;
+let init;
+let totalCards;
 
 const cardClick = (cards) => {
 	for (let card of cards.cards) {
@@ -15,22 +19,25 @@ const cardClick = (cards) => {
 }
 
 initInput.addEventListener("keyup", () => {
-		if (initInput.value % 2 != 0 || initInput.value == "" || initInput.value == 0) {
-			ready = false;
-			initInput.classList.add("has-content");
-			errormsg.innerHTML = "Insufficient number of cards";
-		}
 
-		else {
-			initInput.classList.add("has-content");
-			ready = true;
-			errormsg.innerHTML = "Good to go!";
-		}
+	if (initInput.value % 2 != 0 || initInput.value == "" || initInput.value == 0 || initInput.value > 20) {
+		ready = false;
+		initInput.classList.add("has-content");
+		errormsg.innerHTML = "Insufficient number of cards <br> <i>pssst, max 20 cards </i>";
+	}
 
-		if (initInput.value == "" || initInput.value == 0) {
-			initInput.classList.remove("has-content");
+	else {
+		initInput.classList.add("has-content");
+		ready = true;
+		errormsg.innerText = "Good to go!";
+	}
 
-		}
+	if (initInput.value == "") {
+		initInput.classList.remove("has-content");
+		ready = false;
+		errormsg.innerText = "";
+
+	}
 });
 
 start.addEventListener("click", () => {
@@ -38,12 +45,12 @@ start.addEventListener("click", () => {
     if (ready) {
 		wrapper.style.left = "-100%";
 		wrapper.style.opacity = "0";
-        let totalCards = initInput.value;
+        totalCards = initInput.value;
 
-        let game = new Game();
-		let init = game.init(totalCards);
+        game = new Game();
+		init = game.init(totalCards);
 
-        let cards = new Cards(init);
+        cards = new Cards(init);
 		cards.shuffle();
 		cards.setCards();
 		setTimeout(() => {
@@ -54,3 +61,13 @@ start.addEventListener("click", () => {
         errormsg.innerHTML = "Insufficient number of cards";
     }
 });
+
+const restart = () => {
+	 initInput.value = "";
+	 initInput.focus();
+	 ready = null;
+	 game = null;
+	 cards = null;
+	 init = null;
+	 totalCards = null;
+}
