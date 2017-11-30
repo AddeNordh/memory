@@ -1,0 +1,11 @@
+
+.card:hover:not(.target) {
+	transform: scale(1.1);
+}
+
+.start-btn:hover {
+	color: var(--bg-border);
+	border: 2px solid var(--color);
+	top: -10px;
+	transform:skewX(10deg) skewY(10deg);
+}
