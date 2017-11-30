@@ -10,6 +10,8 @@ start.addEventListener("click", () => {
         let numbCards = initInput.value;
         let game = new Game(numbCards);
         game.init();
+		let shuffled = game.shuffle(game.cards);
+		let cards = new Cards(shuffled);
     }
     else {
         errormsg.innerHTML = "Insufficient number of cards";

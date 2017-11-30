@@ -24,8 +24,6 @@ function Game(length) {
             this.cards.push(cardEle);
 
         }
-
-        this.shuffle(this.cards);
     }
 }
 
@@ -42,7 +40,7 @@ Game.prototype.shuffle = function(cards) {
             cards[j] = temp;
         }
     }
-    new Cards(cards);
+    return cards;
 
 }
 
