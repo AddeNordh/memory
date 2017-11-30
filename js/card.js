@@ -30,3 +30,37 @@ function Game(length) {
     }
 
 }
+
+
+Game.prototype.shuffle = function(cards) {
+    for (var i = cards.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        let temp = cards[i];
+        cards[i] = cards[j];
+        cards[j] = temp;
+        if (cards[i] === cards[j]) {
+            let j = Math.floor(Math.random() * (i + 1 + (i - 1 % 3)));
+            let temp = cards[i];
+            cards[i] = cards[j];
+            cards[j] = temp;
+        }
+    }
+
+    new Cards(cards);
+
+}
+
+function Cards(cards) {
+
+    this.cards = cards;
+
+    for (let card of this.cards) {
+        this.setCard(card)
+    }
+}
+
+Cards.prototype.setCard = function(card) {
+
+    container.appendChild(card)
+
+}
