@@ -1,0 +1,13 @@
+@keyframes spin {
+
+	0% 		{left: 100%; transform: rotate(360deg);color:#e8491d;}
+	100% 	{left: -100%; transform: rotate(-360deg);color:var(--color)}
+
+}
+
+
+@keyframes win {
+	0% 	 	 {transform:scale(1) rotateY(180deg) rotateX(0deg);}
+
+	100%	 {transform:scale(1) rotateY(180deg) rotateX(360deg);}
+}
