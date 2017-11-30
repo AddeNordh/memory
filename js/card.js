@@ -5,7 +5,7 @@ function Cards(cards) {
 	this.container = document.createElement("div");
 	this.container.setAttribute("class","card-container");
 	document.body.appendChild(this.container);
-
+	this.pared = 0;
 }
 
 
@@ -45,21 +45,24 @@ Cards.prototype.setCards = function() {
 }
 
 Cards.prototype.compare = function() {
-
 	this.t1 = this.targets[0].dataset.value;
 	this.t2 = this.targets[1].dataset.value;
-
-	console.log(this.t1, this.t2);
 
 	if(this.t1 === this.t2) {
 		this.targets[0].classList.add("succses");
 		this.targets[1].classList.add("succses");
+		this.pared++;
+		if (this.pared == this.cards.length / 2) {
+			this.restart();
+		}
 	}
+
 
 	else {
 		this.targets[0].classList.remove("target");
 		this.targets[1].classList.remove("target");
 	}
+
 }
 
 
@@ -76,4 +79,16 @@ Cards.prototype.addTarget = function(target) {
 		},700);
 
 	}
+}
+
+Cards.prototype.restart = function() {
+	this.container.style.left = "100%";
+	setTimeout(() => {
+		document.body.removeChild(this.container);
+	},500);
+	this.pared = 0;
+	restart();
+	this.cards = [];
+	let g = new Game();
+	g.restart();
 }
