@@ -1,6 +1,6 @@
 @keyframes spin {
 
-	0% 		{left: 100%; transform: rotate(360deg);color:#e8491d;}
+	0% 		{left: 100%; transform: rotate(360deg);color:var(--bg-border);}
 	100% 	{left: -100%; transform: rotate(-360deg);color:var(--color)}
 
 }
