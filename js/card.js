@@ -27,9 +27,7 @@ function Game(length) {
 
         this.shuffle(this.cards);
     }
-
 }
-
 
 Game.prototype.shuffle = function(cards) {
     for (var i = cards.length - 1; i > 0; i--) {
@@ -44,7 +42,6 @@ Game.prototype.shuffle = function(cards) {
             cards[j] = temp;
         }
     }
-
     new Cards(cards);
 
 }
@@ -57,6 +54,7 @@ function Cards(cards) {
 	document.body.appendChild(this.container);
 
     for (let card of this.cards) {
+			console.log(this.container.getBoundingClientRect().top);
         this.setCard(card)
     }
 }
