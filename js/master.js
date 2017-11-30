@@ -1,7 +1,7 @@
 "use strict";
 
 const container = document.getElementById('container');
-const initInput = document.getElementById('init-game');
+const initInput = document.getElementsByClassName('init-game')[0];
 const start = document.getElementById('button');
 const errormsg = document.getElementById('error-msg');
 
