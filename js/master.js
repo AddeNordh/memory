@@ -6,12 +6,18 @@ const start = document.getElementById('button');
 const errormsg = document.getElementById('error-msg');
 
 start.addEventListener("click", () => {
+
     if (initInput.value != "" && initInput.value % 2 == 0) {
-        let numbCards = initInput.value;
-        let game = new Game(numbCards);
-        game.init();
-		let shuffled = game.shuffle(game.cards);
-		let cards = new Cards(shuffled);
+
+        let totalCards = initInput.value;
+
+        let game = new Game();
+		let init = game.init(totalCards);
+
+        let cards = new Cards(init);
+		cards.shuffle();
+		cards.setCards();
+
     }
     else {
         errormsg.innerHTML = "Insufficient number of cards";
