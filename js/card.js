@@ -33,9 +33,14 @@ Cards.prototype.shuffle = function() {
 
 Cards.prototype.setCards = function() {
 
-	for (this.card of this.cards) {
-		this.card.classList.add("active");
-		this.container.appendChild(this.card);
+	for (let i = 0; i < this.cards.length; i++) {
+		((i) => {
+			this.container.appendChild(this.cards[i]);
+			setTimeout(() => {
+				this.cards[i].classList.add("active");
+			},100 * (i + 1));
+		})(i);
+
 	}
 }
 
@@ -59,10 +64,11 @@ Cards.prototype.compare = function() {
 
 
 Cards.prototype.addTarget = function(target) {
+
 	this.target = target;
 	this.target.classList.add("target");
 	this.targets.push(this.target);
-	console.log(this.targets);
+
 	if (this.targets.length > 1) {
 		setTimeout(() => {
 			this.compare();
