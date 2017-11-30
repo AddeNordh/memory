@@ -27,10 +27,10 @@ function Game() {
 			this.cardFront.classList.add("card-front");
 			this.cardBack.classList.add("card-back");
 
-			this.cardBack.setAttribute('data-value', this.value);
 			this.cardBack.style.background = `url(imgs/img-${this.count}.png)`;
 			this.cardBack.style.backgroundSize = "cover";
 
+			this.cardEle.setAttribute('data-value', this.value);
 			this.cardEle.appendChild(this.cardFront);
 			this.cardEle.appendChild(this.cardBack);
 
