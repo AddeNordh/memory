@@ -118,3 +118,72 @@ input:focus ~ label, .has-contentinput ~ label{top: -16px; font-size: 12px; colo
 	top: -10px;
 	transform:skewX(10deg) skewY(10deg);
 }
+
+.card-container {
+	width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+	flex-wrap: wrap;
+    align-items: center;
+}
+
+.reset {
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	color: #def;
+	transition: all .3s ease;
+	cursor: pointer;
+	outline: none;
+	border: 2px solid #F49501;
+	background: transparent;
+	width: 250px;
+	text-transform: capitalize;
+	font-size: 20px;
+	font-weight: 600;
+	letter-spacing: 1.5px;
+	height: 50px;
+	position: relative;
+	top: 5%;
+}
+
+.card {
+	border-radius: 10%;
+	background: #1ab8ff;
+    width: 10%;
+    margin: 40px;
+    height: 17%;
+	transform-style: preserve-3d;
+	position: relative;
+	transition: all .5s ease;
+	opacity: 0;
+	transform: translateX(-25%);
+}
+
+.card.active {
+	opacity: 1;
+	transform:none;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
+	background: none;
+}
+
+
+.card div {
+	backface-visibility: hidden;
+	border-radius: 6px;
+	height: 100%;
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+}
+
+.card .card-back {
+	line-height: 150px;
+	text-align: center;
+	transform: rotateY(180deg);
+}
