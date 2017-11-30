@@ -9,3 +9,8 @@
 	top: -10px;
 	transform:skewX(10deg) skewY(10deg);
 }
+
+.reset-wrapper:hover {
+	transform:rotate(180deg);
+	color: var(--bg-border)
+}
