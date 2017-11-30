@@ -20,6 +20,13 @@
 	margin: 5% 0%;
 }
 
+#error-msg {
+	min-height: 18px;
+	font-size: 18px;
+	margin: 0;
+	padding: 0;
+}
+
 h1 {
 	font-size: 60px;
     letter-spacing: 2px;
@@ -118,7 +125,7 @@ input {
 
 .card {
 	border-radius: 10%;
-	background: #1ab8ff;
+	background: var(--blue);
     width: 10%;
     margin: 20px;
     height: 20%;
@@ -126,7 +133,6 @@ input {
 	position: relative;
 	transition: all .5s ease;
 	opacity: 0;
-	animation-name: color;
 	cursor: pointer;
 }
 
