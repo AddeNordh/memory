@@ -16,6 +16,8 @@
 
 3. To open the file in your browser you just simply need to write the path the __folder__ in the __URL__.
 
+[<img src="https://image.prntscr.com/image/QdBdrEDSRdOOtSEwfqh6Tg.png alt="13 - Freeze 202" width="100%">](https://github.com/AddeNordh/memory)
+
 `file:///Users/USER/PATH_TO_WHERE_YOUR_FOLDER_IS_PLACED/memory/index.html`
 
 For me it looks like
