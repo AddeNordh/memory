@@ -5,6 +5,7 @@ const initInput = document.getElementsByClassName('init-game')[0];
 const start = document.getElementById('button');
 const errormsg = document.getElementById('error-msg');
 const restartBtn = document.getElementsByClassName('reset-wrapper')[0];
+const msg = document.getElementById('msg');
 
 let ready;
 let game;
@@ -92,7 +93,8 @@ restartBtn.addEventListener("click", () => {
  * @return {[type]} [description]
  */
 
-const restart = () => {
+const restart = (txt = "") => {
+	msg.innerHTML = `${txt}` + msg.innerText;
 	restartBtn.style.opacity = 0;
 	container.style.left = "0%";
 	container.style.opacity = "1";

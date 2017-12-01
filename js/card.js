@@ -129,7 +129,7 @@ Cards.prototype.compare = function() {
 		// if all the cards has been matches, restart the game
 		if (this.pared == this.cards.length / 2) {
 			setTimeout(() => {
-				restart();
+				restart("Wanna play again?<br>");
 			},1500);
 		}
 	}
