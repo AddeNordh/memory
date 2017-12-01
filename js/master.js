@@ -75,7 +75,7 @@ start.addEventListener("click", () => {
     }
 
     else {
-        errormsg.innerHTML = "Insufficient number of cards";
+        errormsg.innerText = "Insufficient number of cards";
     }
 
 });
@@ -98,6 +98,7 @@ const restart = () => {
   	 container.style.left = "0%";
      container.style.opacity = "1";
 	 initInput.value = "";
+	 errormsg.innerText = "Insufficient number of cards";
 	 initInput.focus();
 	 game.restart();
 	 ready = null;
