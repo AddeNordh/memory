@@ -159,11 +159,11 @@ input {
 }
 
 .card:nth-child(even) {
-	transform: translate(-125%, 200%);
+	transform: translate(-125%, 100%);
 }
 
 .card:nth-child(odd) {
-	transform: translate(175%, -200%) ;
+	transform: translate(175%, -100%) ;
 }
 
 
