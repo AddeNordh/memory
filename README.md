@@ -21,3 +21,8 @@
 For me it looks like
 
 `file:///Users/addenordh/Documents/KlientBaserad%20Utveckling/assignments/memory/index.html`
+
+## Tester
+
+Andreas Lundqvist - [momentiris](https://github.com/momentiris)
+TBA
