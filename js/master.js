@@ -82,8 +82,7 @@ start.addEventListener("click", () => {
 
 
 restartBtn.addEventListener("click", () => {
-	game.restart();
-	cards.restart();
+	restart();
 });
 
 
@@ -94,18 +93,19 @@ restartBtn.addEventListener("click", () => {
  */
 
 const restart = () => {
-	 restartBtn.style.opacity = 0;
-  	 container.style.left = "0%";
-     container.style.opacity = "1";
-	 initInput.value = "";
-	 errormsg.innerText = "Insufficient number of cards";
-	 initInput.focus();
-	 game.restart();
-	 ready = null;
-	 game = null;
-	 cards = null;
-	 init = null;
-	 totalCards = null;
+	restartBtn.style.opacity = 0;
+	container.style.left = "0%";
+	container.style.opacity = "1";
+	initInput.value = "";
+	errormsg.innerText = "Insufficient number of cards";
+	initInput.focus();
+	game.restart();
+	cards.restart();
+	ready = null;
+	game = null;
+	cards = null;
+	init = null;
+	totalCards = null;
 }
 
 console.warn("%c 404                         No Errors Found!", "color: red; font-size:25px; -webkit-text-stroke: 1px #000")
