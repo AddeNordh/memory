@@ -116,9 +116,6 @@ Cards.prototype.compare = function() {
 	this.t1 = this.targets[0].dataset.value;
 	this.t2 = this.targets[1].dataset.value;
 
-	this.f1 = this.targets[0];
-	this.f2 = this.targets[1];
-
 	// If the card values matches
 	if(this.t1 === this.t2) {
 
@@ -133,7 +130,7 @@ Cards.prototype.compare = function() {
 		if (this.pared == this.cards.length / 2) {
 			setTimeout(() => {
 				restart();
-			},1000);
+			},1500);
 		}
 	}
 
