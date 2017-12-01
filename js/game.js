@@ -10,7 +10,7 @@ function Game() {
 	 * @func Game.init()
 	 * The function to initiat the game board
 	 * @param  {[int]} 		  length 		  [ The desired amount of cards ]
-	 * @return {[array]} @var this.Cards      [An array containg all the cards, unshuffled]
+	 * @return {[array]} @var this.Cards      [ An array containg all the cards, unshuffled ]
 	 */
 
     this.init = (length) => {
@@ -27,6 +27,7 @@ function Game() {
                     }
                 }
             }
+
 			// The card wrapper
             this.cardEle = document.createElement("div");
 			// The front of the card which is displayed
@@ -51,8 +52,9 @@ function Game() {
 
             this.values.push(this.value);
             this.cards.push(this.cardEle);
+
 			this.cardEle = null;
-        }
+        } // For loop ends
 		return this.cards;
     }
 }

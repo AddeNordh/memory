@@ -139,6 +139,7 @@ Cards.prototype.compare = function() {
  * The function the restart the game
  * @return {[void]}
  */
+
 Cards.prototype.restart = function() {
 	this.container.style.left = "100%";
 	setTimeout(() => {
@@ -146,9 +147,11 @@ Cards.prototype.restart = function() {
 		document.body.removeChild(this.container);
 	},500);
 	/** resets all the values of the @var {Card object}  */
+
 	this.pared = 0;
 	this.cards = [];
 	this.completed = [];
+
 	/** Calls the global restart function wich calls for the @var {game object} to @func game.restart()  */
 	restart();
 }
