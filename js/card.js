@@ -73,9 +73,13 @@ Cards.prototype.addTarget = function(target) {
 		 * Checks if the clicked target exists in the already completed array @var this.completed[]
 		 * Or if the user clicks the same card twice.
 		 */
-		if (item == this.target || this.target == this.targets[0]) {
+		if (item == this.target) {
 			return false;
 		}
+	}
+
+	if (this.target == this.targets[0]) {
+		return false;
 	}
 
 
