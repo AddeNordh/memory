@@ -3,12 +3,16 @@ function Cards(cards) {
 	this.completed = [];
 	this.targets = [];
     this.cards = cards;
-	this.container = document.createElement("div");
-	// the container for all the cards
-	this.container.setAttribute("class","card-container");
-	document.body.appendChild(this.container);
+
 	this.pared = 0;
 	this.r = false;
+
+	// the container for all the cards
+
+	this.container = document.createElement("div");
+	this.container.setAttribute("class","card-container");
+	document.body.appendChild(this.container);
+	this.container.style.opacity = 1;
 }
 
 /**
