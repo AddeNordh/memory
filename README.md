@@ -3,7 +3,7 @@
 [<img src="https://media.giphy.com/media/3HqPTBUMM2eXe/giphy.gif" alt="13 - Freeze 202" width="100%">](https://github.com/AddeNordh/memory)
 
 
-### Repo for the memory game in our JS course
+## Repo for the memory game in our JS course
 
 > Concentration, also known as Match Match, Match Up, Memory, Pelmanism, Shinkei-suijaku, Pexeso or simply Pairs, is a card game in which all of the cards are laid face down on a surface and two cards are flipped face up over each turn. The object of the game is to turn over pairs of matching cards. Concentration can be played with any number of players or as solitaire. It is a particularly good game for young children, though adults may find it challenging and stimulating as well. The scheme is often used in quiz shows and can be employed as an educational game.  - [Wikipedia](https://en.wikipedia.org/wiki/Concentration_(game))
 
@@ -22,7 +22,7 @@ For me it looks like
 
 `file:///Users/addenordh/Documents/KlientBaserad%20Utveckling/assignments/memory/index.html`
 
-## Tester
+## Testers
 
 Andreas Lundqvist - [momentiris](https://github.com/momentiris)
 
