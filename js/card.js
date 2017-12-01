@@ -1,5 +1,6 @@
 function Cards(cards) {
 
+	this.completed = [];
 	this.targets = [];
     this.cards = cards;
 	this.container = document.createElement("div");
@@ -7,6 +8,7 @@ function Cards(cards) {
 	this.container.setAttribute("class","card-container");
 	document.body.appendChild(this.container);
 	this.pared = 0;
+	this.r = false;
 }
 
 /**
@@ -66,6 +68,18 @@ Cards.prototype.setCards = function() {
 Cards.prototype.addTarget = function(target) {
 
 	this.target = target;
+	for (let item of this.completed) {
+		/**
+		 * Checks if the clicked target exists in the already completed array @var this.completed[]
+		 * Or if the user clicks the same card twice.
+		 */
+		if (item == this.target || this.target == this.targets[0]) {
+			return false;
+		}
+	}
+
+
+
 	// adds the "target" class to the card in order to flip it
 	// and pushes the card into the targets array
 	this.target.classList.add("target");
@@ -77,9 +91,9 @@ Cards.prototype.addTarget = function(target) {
 			this.compare();
 			this.targets = [];
 		},700);
-
 	}
 }
+
 
 /**
  * The function for comparing the values of 2 cards from @var this.targets[]
@@ -92,10 +106,18 @@ Cards.prototype.compare = function() {
 	this.t1 = this.targets[0].dataset.value;
 	this.t2 = this.targets[1].dataset.value;
 
+	this.f1 = this.targets[0];
+	this.f2 = this.targets[1];
+
 	// If the card values matches
 	if(this.t1 === this.t2) {
+
 		this.targets[0].classList.add("succses");
 		this.targets[1].classList.add("succses");
+
+		this.completed.push(this.targets[0]);
+		this.completed.push(this.targets[1]);
+
 		this.pared++;
 		// if all the cards has been matches, restart the game
 		if (this.pared == this.cards.length / 2) {
@@ -126,6 +148,7 @@ Cards.prototype.restart = function() {
 	/** resets all the values of the @var {Card object}  */
 	this.pared = 0;
 	this.cards = [];
+	this.completed = [];
 	/** Calls the global restart function wich calls for the @var {game object} to @func game.restart()  */
 	restart();
 }

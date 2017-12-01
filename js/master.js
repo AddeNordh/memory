@@ -106,3 +106,5 @@ const restart = () => {
 	 init = null;
 	 totalCards = null;
 }
+
+console.warn("%c 404                         No Errors Found!", "color: red; font-size:25px; -webkit-text-stroke: 1px #000")
