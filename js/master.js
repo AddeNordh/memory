@@ -10,11 +10,18 @@ let game;
 let cards;
 let init;
 let totalCards;
+let prevent = false;
 
 const cardClick = (cards) => {
 	for (let card of cards.cards) {
 		card.addEventListener("click", () => {
-			cards.addTarget(card);
+			if (!prevent) {
+				cards.addTarget(card);
+				prevent = true;
+			}
+			setTimeout(() => {
+				prevent = false;
+			},400);
 		})
 	}
 }
