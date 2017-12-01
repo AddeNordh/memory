@@ -75,6 +75,7 @@ const restart = () => {
      container.style.opacity = "1";
 	 initInput.value = "";
 	 initInput.focus();
+	 game.restart();
 	 ready = null;
 	 game = null;
 	 cards = null;
