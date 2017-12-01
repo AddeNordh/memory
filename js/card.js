@@ -99,7 +99,9 @@ Cards.prototype.compare = function() {
 		this.pared++;
 		// if all the cards has been matches, restart the game
 		if (this.pared == this.cards.length / 2) {
-			this.restart();
+			setTimeout(() => {
+				this.restart();
+			},1000);
 		}
 	}
 
