@@ -51,7 +51,9 @@ Cards.prototype.setCards = function() {
 		((i) => {
 			this.container.appendChild(this.cards[i]);
 			setTimeout(() => {
-				this.cards[i].classList.add("active");
+				requestAnimationFrame(() => {
+					this.cards[i].classList.add("active");
+				})
 			},100 * (i + 1));
 		})(i);
 
@@ -126,7 +128,7 @@ Cards.prototype.compare = function() {
 		// if all the cards has been matches, restart the game
 		if (this.pared == this.cards.length / 2) {
 			setTimeout(() => {
-				this.restart();
+				restart();
 			},1000);
 		}
 	}
@@ -145,7 +147,7 @@ Cards.prototype.compare = function() {
  */
 
 Cards.prototype.restart = function() {
-	this.container.style.left = "100%";
+	this.container.style.opacity = "0";
 	setTimeout(() => {
 		// Removes the card board from the document.
 		document.body.removeChild(this.container);
@@ -157,5 +159,4 @@ Cards.prototype.restart = function() {
 	this.completed = [];
 
 	/** Calls the global restart function wich calls for the @var {game object} to @func game.restart()  */
-	restart();
 }
