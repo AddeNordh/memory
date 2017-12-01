@@ -26,4 +26,4 @@ For me it looks like
 
 Andreas Lundqvist - [momentiris](https://github.com/momentiris)
 
-TBA
+Patric Johansson  - [PatricNox](https://github.com/patricnox)
