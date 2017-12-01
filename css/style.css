@@ -21,6 +21,7 @@
 	transition: all .5s ease;
     justify-content: space-evenly;
     align-items: center;
+	overflow: hidden;
 	color: var(--color)
 }
 
