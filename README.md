@@ -18,8 +18,6 @@
 
 [<img src="https://image.prntscr.com/image/QdBdrEDSRdOOtSEwfqh6Tg.png alt="13 - Freeze 202" width="100%">](https://github.com/AddeNordh/memory)
 
-`file:///Users/USER/PATH_TO_WHERE_YOUR_FOLDER_IS_PLACED/memory/index.html`
-
 For me it looks like
 
 `file:///Users/addenordh/Documents/KlientBaserad%20Utveckling/assignments/memory/index.html`
