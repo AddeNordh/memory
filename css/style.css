@@ -209,6 +209,7 @@ input {
 .score p {
 	display: inline-block;
 	margin: 1% 10%;
+	transition: all .5s ease;
 	color: var(--color);
 }
 
