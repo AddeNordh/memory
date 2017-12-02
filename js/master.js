@@ -6,13 +6,15 @@ const start = document.getElementById('button');
 const errormsg = document.getElementById('error-msg');
 const restartBtn = document.getElementsByClassName('reset-wrapper')[0];
 const msg = document.getElementById('msg');
+const players = document.getElementById('players');
+const playersArray = [];
 
 let ready;
 let game;
 let cards;
 let init;
 let totalCards;
-let prevent = false;
+let prevent = false
 
 
 
@@ -54,6 +56,21 @@ initInput.addEventListener("keyup", () => {
 
 start.addEventListener("click", () => {
 
+	if (document.getElementById('multiplayer').checked) {
+		let scoreWrapper = document.createElement("div");
+		scoreWrapper.classList.add("score");
+		document.body.appendChild(scoreWrapper);
+		let multiplayer = true;
+		let playerAmount = players.value || 1;
+		let i = 1;
+		while (i < parseInt(playerAmount) + parseInt(1)) {
+			let player = new Player(i);
+			playersArray.push(player);
+			scoreWrapper.append(player.p);
+			i++;
+		}
+	}
+
     if (ready) {
 		restartBtn.style.opacity = 1;
 		wrapper.style.left = "-100%";
@@ -73,6 +90,8 @@ start.addEventListener("click", () => {
 		setTimeout(() => {
 			cardClick(cards);
 		},1000);
+
+
     }
 
     else {

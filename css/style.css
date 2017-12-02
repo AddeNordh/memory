@@ -112,7 +112,7 @@ input {
 	flex-wrap: wrap;
     align-items: center;
 	position: absolute;
-	top: 0;
+	top: 10%;
 	left: 0;
 	transition: all .25s ease;
 	opacity: 0;
@@ -198,4 +198,16 @@ input {
 	line-height: 150px;
 	text-align: center;
 	transform: rotateY(180deg);
+}
+
+.score {
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.score p {
+	display: inline-block;
+	margin: 1% 10%;
+	color: var(--color);
 }

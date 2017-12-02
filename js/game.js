@@ -60,6 +60,7 @@ function Game() {
 }
 
 
+
 /**
  * @func Game.restart()
  * The function to restart the game, i.e, reseting the @var this.cards[]

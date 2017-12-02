@@ -5,6 +5,7 @@ function Cards(cards) {
     this.cards = cards;
 
 	this.pared = 0;
+	this.track = 0;
 	this.r = false;
 
 	// the container for all the cards
@@ -112,6 +113,8 @@ Cards.prototype.addTarget = function(target) {
 
 Cards.prototype.compare = function() {
 
+	this.player = playersArray[this.track];
+	console.log(playersArray);
 	// The values of the 2 cards selected
 	this.t1 = this.targets[0].dataset.value;
 	this.t2 = this.targets[1].dataset.value;
@@ -121,7 +124,8 @@ Cards.prototype.compare = function() {
 
 		this.targets[0].classList.add("succses");
 		this.targets[1].classList.add("succses");
-
+		this.player.score++;
+		this.player.p.innerText = `player ${this.player.id} - ${this.player.score} points`;
 		this.completed.push(this.targets[0]);
 		this.completed.push(this.targets[1]);
 
@@ -139,7 +143,10 @@ Cards.prototype.compare = function() {
 		this.targets[0].classList.remove("target");
 		this.targets[1].classList.remove("target");
 	}
-
+	this.track++;
+	if (this.track == playersArray.length - 1) {
+		this.track = 0;
+	}
 }
 
 /**
