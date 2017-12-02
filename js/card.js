@@ -113,8 +113,9 @@ Cards.prototype.addTarget = function(target) {
 
 Cards.prototype.compare = function() {
 
+	// get the currnet player from the array containing all the player objects
 	this.player = playersArray[this.track];
-	console.log(playersArray);
+
 	// The values of the 2 cards selected
 	this.t1 = this.targets[0].dataset.value;
 	this.t2 = this.targets[1].dataset.value;
@@ -124,12 +125,16 @@ Cards.prototype.compare = function() {
 
 		this.targets[0].classList.add("succses");
 		this.targets[1].classList.add("succses");
+
+		// Increments the current players score by 1
 		this.player.score++;
-		this.player.p.innerText = `player ${this.player.id} - ${this.player.score} points`;
+		this.player.p.innerHTML = ` <br><b>player ${this.player.id} - </b><br> ${this.player.score} points`;
+
 		this.completed.push(this.targets[0]);
 		this.completed.push(this.targets[1]);
 
 		this.pared++;
+
 		// if all the cards has been matches, restart the game
 		if (this.pared == this.cards.length / 2) {
 			setTimeout(() => {
@@ -143,10 +148,18 @@ Cards.prototype.compare = function() {
 		this.targets[0].classList.remove("target");
 		this.targets[1].classList.remove("target");
 	}
+	// removes the active state from the current player <p> and increments the tracker
+	this.player.p.classList.remove("active");
 	this.track++;
-	if (this.track == playersArray.length - 1) {
+
+	// if the tracker exceeds the amount of players it is set back to 0 to start over.
+	if (this.track == playersArray.length) {
 		this.track = 0;
 	}
+
+	// adds the active state to the next player
+	playersArray[this.track].p.classList.add("active");
+
 }
 
 /**

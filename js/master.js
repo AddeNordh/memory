@@ -1,7 +1,7 @@
 "use strict";
 
 const container = document.getElementById('wrapper');
-const initInput = document.getElementsByClassName('init-game')[0];
+const initInputs = document.getElementsByClassName('init-game');
 const start = document.getElementById('button');
 const errormsg = document.getElementById('error-msg');
 const restartBtn = document.getElementsByClassName('reset-wrapper')[0];
@@ -32,50 +32,59 @@ const cardClick = (cards) => {
 	}
 }
 
-initInput.addEventListener("keyup", () => {
+// loops throguh all the input fields and adds an event listener to check the values
+for (let initInput of initInputs) {
 
-	if (initInput.value % 2 != 0 || initInput.value == "" || initInput.value == 0 || initInput.value > 20) {
-		ready = false;
-		initInput.classList.add("has-content");
-		errormsg.innerHTML = "Insufficient number of cards <br> <i>pssst, max 20 cards </i>";
-	}
+	initInput.addEventListener("keyup", () => {
 
-	else {
-		initInput.classList.add("has-content");
-		ready = true;
-		errormsg.innerText = "Good to go!";
-	}
+		if (initInput.value % 2 != 0 || initInput.value == "" || initInput.value == 0 || initInput.value > 20) {
+			ready = false;
+			initInput.classList.add("has-content");
+			errormsg.innerHTML = "Insufficient number of cards <br> <i>pssst, max 20 cards </i>";
+		}
 
-	if (initInput.value == "") {
-		initInput.classList.remove("has-content");
-		ready = false;
-		errormsg.innerText = "";
+		else {
+			initInput.classList.add("has-content");
+			ready = true;
+			errormsg.innerText = "Good to go!";
+		}
 
-	}
-});
+		if (initInput.value == "") {
+			initInput.classList.remove("has-content");
+			ready = false;
+			errormsg.innerText = "";
+
+		}
+	});
+}
 
 start.addEventListener("click", () => {
 
-	if (document.getElementById('multiplayer').checked) {
+    if (ready) {
+		// creates the score wrapper
 		let scoreWrapper = document.createElement("div");
 		scoreWrapper.classList.add("score");
 		document.body.appendChild(scoreWrapper);
-		let multiplayer = true;
+
+		// sets the amount of players to the desired amount or 1 if it is left mpty
 		let playerAmount = players.value || 1;
 		let i = 1;
+		// adds the amount of players
 		while (i < parseInt(playerAmount) + parseInt(1)) {
 			let player = new Player(i);
 			playersArray.push(player);
 			scoreWrapper.append(player.p);
 			i++;
 		}
-	}
 
-    if (ready) {
+		// sets the first player to active
+		playersArray[0].p.classList.add("active");
+
+
 		restartBtn.style.opacity = 1;
 		wrapper.style.left = "-100%";
 		wrapper.style.opacity = "0";
-        totalCards = initInput.value;
+        totalCards = initInputs[0].value;
 
 		// Creates a new instance of the game object
         game = new Game();
@@ -90,8 +99,6 @@ start.addEventListener("click", () => {
 		setTimeout(() => {
 			cardClick(cards);
 		},1000);
-
-
     }
 
     else {
