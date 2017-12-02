@@ -14,6 +14,7 @@ let game;
 let cards;
 let init;
 let totalCards;
+let scoreWrapper;
 let prevent = false
 
 
@@ -62,7 +63,7 @@ start.addEventListener("click", () => {
 
     if (ready) {
 		// creates the score wrapper
-		let scoreWrapper = document.createElement("div");
+		scoreWrapper = document.createElement("div");
 		scoreWrapper.classList.add("score");
 		document.body.appendChild(scoreWrapper);
 
@@ -120,13 +121,15 @@ restartBtn.addEventListener("click", () => {
  */
 
 const restart = (txt = "") => {
+	document.body.removeChild(scoreWrapper);
 	msg.innerHTML = `${txt}` + msg.innerText;
 	restartBtn.style.opacity = 0;
 	container.style.left = "0%";
 	container.style.opacity = "1";
-	initInput.value = "";
+	initInputs[0].value = "";
+	initInputs[1].value = "";
 	errormsg.innerText = "Insufficient number of cards";
-	initInput.focus();
+	initInputs[0].focus();
 	game.restart();
 	cards.restart();
 	ready = null;
