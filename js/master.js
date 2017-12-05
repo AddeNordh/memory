@@ -82,9 +82,8 @@ start.addEventListener("click", () => {
 		playersArray[0].p.classList.add("active");
 
 
-		restartBtn.style.opacity = 1;
-		wrapper.style.left = "-100%";
-		wrapper.style.opacity = "0";
+		restartBtn.classList.add("fade-in");
+		container.classList.add("hidden");
         totalCards = initInputs[0].value;
 
 		// Creates a new instance of the game object
@@ -123,9 +122,8 @@ restartBtn.addEventListener("click", () => {
 const restart = (txt = "") => {
 	document.body.removeChild(scoreWrapper);
 	msg.innerHTML = `${txt}` + msg.innerText;
-	restartBtn.style.opacity = 0;
-	container.style.left = "0%";
-	container.style.opacity = "1";
+	restartBtn.classList.remove("fade-in");
+	container.classList.remove("hidden");
 	initInputs[0].value = "";
 	initInputs[1].value = "";
 	errormsg.innerText = "Insufficient number of cards";
