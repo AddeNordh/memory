@@ -87,9 +87,9 @@ start.addEventListener("click", () => {
         totalCards = initInputs[0].value;
 
 		// Creates a new instance of the game object
-        game = new Game();
+        game = new Game(totalCards);
 		// Calls the init method in the game object to get the array of all the cards.
-		init = game.init(totalCards);
+		init = game.init();
 
 		// Creates a new instance of the Cards object and calls the shuffle and setCards methods.
         cards = new Cards(init);

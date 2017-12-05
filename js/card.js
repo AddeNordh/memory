@@ -1,19 +1,20 @@
-function Cards(cards) {
+class Cards {
+	constructor(cards) {
+		this.completed = [];
+		this.targets = [];
+	    this.cards = cards;
 
-	this.completed = [];
-	this.targets = [];
-    this.cards = cards;
+		this.pared = 0;
+		this.track = 0;
+		this.r = false;
 
-	this.pared = 0;
-	this.track = 0;
-	this.r = false;
+		// the container for all the cards
 
-	// the container for all the cards
-
-	this.container = document.createElement("div");
-	this.container.setAttribute("class","card-container");
-	document.body.appendChild(this.container);
-	this.container.style.opacity = 1;
+		this.container = document.createElement("div");
+		this.container.setAttribute("class","card-container");
+		document.body.appendChild(this.container);
+		this.container.style.opacity = 1;
+	}
 }
 
 /**
