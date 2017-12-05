@@ -116,7 +116,7 @@ restartBtn.addEventListener("click", () => {
 /**
  * @func document.restart();
  * The global function to restart all the global variables aswell as calling for the @func Object.restart();
- * @return {[type]} [description]
+ * @return {[void]}
  */
 
 const restart = (txt = "") => {

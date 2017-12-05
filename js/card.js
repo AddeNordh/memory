@@ -1,4 +1,11 @@
 class Cards {
+
+	/**
+	 * The construct method the the cards object,
+	 * @param  {[type]} cards [All the cards created from the game object constructor, unshuffled and not yet set on the board]
+	 * @return {[void]}       []
+	 */
+
 	constructor(cards) {
 		this.completed = [];
 		this.targets = [];
@@ -6,8 +13,6 @@ class Cards {
 
 		this.pared = 0;
 		this.track = 0;
-		this.r = false;
-
 		// the container for all the cards
 
 		this.container = document.createElement("div");

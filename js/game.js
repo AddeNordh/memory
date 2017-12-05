@@ -1,4 +1,9 @@
 class Game {
+	/**
+	 * The constructor method for the game object, it sets the amount of cards aswell as creates all the cards
+	 * @param  {[type]} length [The amount of cards desired]
+	 * @return {[void]}        [none]
+	 */
 	constructor(length) {
 		this.cards = [];
 		this.values = [];
@@ -14,8 +19,7 @@ class Game {
 /**
  * @func Game.init()
  * The function to initiat the game board
- * @param  {[int]} 		  length 		  [ The desired amount of cards ]
- * @return {[array]} @var this.Cards      [ An array containg all the cards, unshuffled ]
+ * @return {[array]}	@var this.Cards      [ An array containg all the cards, unshuffled ]
  */
 
 Game.prototype.init = function() {
