@@ -7,8 +7,8 @@ const errormsg = document.getElementById('error-msg');
 const restartBtn = document.getElementsByClassName('reset-wrapper')[0];
 const msg = document.getElementById('msg');
 const players = document.getElementById('players');
-let playersArray = [];
 
+let playersArray = [];
 let ready;
 let game;
 let cards;
@@ -28,7 +28,7 @@ const cardClick = (cards) => {
 			}
 			setTimeout(() => {
 				prevent = false;
-			},1000);
+			},700);
 		})
 	}
 }

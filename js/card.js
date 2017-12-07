@@ -102,7 +102,7 @@ Cards.prototype.addTarget = function(target) {
 		this.targets.push(this.target);
 		setTimeout(() => {
 			this.ready = true;
-		},1000);
+		},800);
 		// If the array contaning all the targets exceeds the length of 1 the user has clicked 2 cards.
 		if (this.targets.length > 1) {
 			setTimeout(() => {
