@@ -7,7 +7,7 @@ const errormsg = document.getElementById('error-msg');
 const restartBtn = document.getElementsByClassName('reset-wrapper')[0];
 const msg = document.getElementById('msg');
 const players = document.getElementById('players');
-const playersArray = [];
+let playersArray = [];
 
 let ready;
 let game;
@@ -28,7 +28,7 @@ const cardClick = (cards) => {
 			}
 			setTimeout(() => {
 				prevent = false;
-			},2000);
+			},1000);
 		})
 	}
 }
@@ -135,6 +135,7 @@ const restart = (txt = "") => {
 	cards = null;
 	init = null;
 	totalCards = null;
+	playersArray = [];
 }
 
 console.warn("%c 404                         No Errors Found!", "color: red; font-size:25px; -webkit-text-stroke: 1px #000")
