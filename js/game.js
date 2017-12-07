@@ -2,7 +2,7 @@ class Game {
 	/**
 	 * The constructor method for the game object, it sets the amount of cards aswell as creates all the cards
 	 * @param  {[type]} length [The amount of cards desired]
-	 * @return {[void]}        [none]
+	 * @return {[void]}
 	 */
 	constructor(length) {
 		this.cards = [];
@@ -54,7 +54,7 @@ Game.prototype.init = function() {
 		this.cardBack.style.backgroundSize = "cover";
 
 		// adds the value to the card wrapper
-		this.cardEle.setAttribute('data-value', this.value);
+		this.cardEle.dataset.value = this.value;
 		this.cardEle.appendChild(this.cardFront);
 		this.cardEle.appendChild(this.cardBack);
 
@@ -63,6 +63,7 @@ Game.prototype.init = function() {
 		this.cards.push(this.cardEle);
 
 		this.cardEle = null;
+
 	} // For loop ends
 	return this.cards;
 }

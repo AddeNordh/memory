@@ -28,7 +28,7 @@ const cardClick = (cards) => {
 			}
 			setTimeout(() => {
 				prevent = false;
-			},450);
+			},2000);
 		})
 	}
 }

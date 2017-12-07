@@ -10,6 +10,7 @@ class Cards {
 		this.completed = [];
 		this.targets = [];
 	    this.cards = cards;
+		this.ready = true;
 
 		this.pared = 0;
 		this.track = 0;
@@ -59,15 +60,12 @@ Cards.prototype.setCards = function() {
 
 	for (let i = 0; i < this.cards.length; i++) {
 		/** calling a self invoking function to be able to use @var i inisde the setTimeout  */
-		((i) => {
 			this.container.appendChild(this.cards[i]);
 			setTimeout(() => {
 				requestAnimationFrame(() => {
 					this.cards[i].classList.add("active");
 				})
 			},100 * (i + 1));
-		})(i);
-
 	}
 }
 
@@ -79,35 +77,38 @@ Cards.prototype.setCards = function() {
  */
 
 Cards.prototype.addTarget = function(target) {
+	if (this.ready) {
+		this.ready = false;
+		this.target = target;
+		for (let item of this.completed) {
+			/**
+			 * Checks if the clicked target exists in the already completed array @var this.completed[]
+			 * Or if the user clicks the same card twice.
+			 */
+			if (item == this.target) {
+				return false;
+			}
+		}
 
-	this.target = target;
-	for (let item of this.completed) {
-		/**
-		 * Checks if the clicked target exists in the already completed array @var this.completed[]
-		 * Or if the user clicks the same card twice.
-		 */
-		if (item == this.target) {
+		if (this.target == this.targets[0]) {
 			return false;
 		}
-	}
-
-	if (this.target == this.targets[0]) {
-		return false;
-	}
 
 
 
-	// adds the "target" class to the card in order to flip it
-	// and pushes the card into the targets array
-	this.target.classList.add("target");
-	this.targets.push(this.target);
-
-	// If the array contaning all the targets exceeds the length of 1 the user has clicked 2 cards.
-	if (this.targets.length > 1) {
+		// adds the "target" class to the card in order to flip it
+		// and pushes the card into the targets array
+		this.target.classList.add("target");
+		this.targets.push(this.target);
 		setTimeout(() => {
-			this.compare();
-			this.targets = [];
-		},700);
+			this.ready = true;
+		},1000);
+		// If the array contaning all the targets exceeds the length of 1 the user has clicked 2 cards.
+		if (this.targets.length > 1) {
+			setTimeout(() => {
+				this.compare();
+			},700);
+		}
 	}
 }
 
@@ -118,6 +119,7 @@ Cards.prototype.addTarget = function(target) {
  */
 
 Cards.prototype.compare = function() {
+	console.log(this.targets);
 
 	// get the currnet player from the array containing all the player objects
 	this.player = playersArray[this.track];
@@ -126,6 +128,7 @@ Cards.prototype.compare = function() {
 	this.t1 = this.targets[0].dataset.value;
 	this.t2 = this.targets[1].dataset.value;
 
+	console.log(this.t1, this.t2);
 	// If the card values matches
 	if(this.t1 === this.t2) {
 
@@ -165,8 +168,9 @@ Cards.prototype.compare = function() {
 
 	// adds the active state to the next player
 	playersArray[this.track].p.classList.add("active");
+	this.targets = [];
+	}
 
-}
 
 /**
  * The function the restart the game
