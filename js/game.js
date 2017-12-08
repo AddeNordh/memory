@@ -16,6 +16,10 @@ class Game {
 }
 
 
+
+
+
+
 /**
  * @func Game.init()
  * The function to initiat the game board
@@ -24,7 +28,6 @@ class Game {
 
 Game.prototype.init = function() {
 	for (let i = 0; i < this.length; i++) {
-
 		// every secound card the values for the next 2 cards are set.
 		if (i % 2 === 0 && i != 0) {
 			this.count++;
@@ -36,33 +39,32 @@ Game.prototype.init = function() {
 				}
 			}
 		}
-
-		// The card wrapper
-		this.cardEle = document.createElement("div");
-		// The front of the card which is displayed
-		this.cardFront = document.createElement("div");
-		// The back of the card containg the img
-		this.cardBack = document.createElement("div");
-
-
-		this.cardEle.classList.add("card");
-		this.cardFront.classList.add("card-front");
-		this.cardBack.classList.add("card-back");
-
-		// Sets the cardback to a img depening on how far the looped as gone.
-		this.cardBack.style.background = `url(imgs/img-${this.count}.png)`;
-		this.cardBack.style.backgroundSize = "cover";
-
-		// adds the value to the card wrapper
-		this.cardEle.dataset.value = this.value;
-		this.cardEle.appendChild(this.cardFront);
-		this.cardEle.appendChild(this.cardBack);
+			// The card wrapper
+			this.cardEle = document.createElement("div");
+			// The front of the card which is displayed
+			this.cardFront = document.createElement("div");
+			// The back of the card containg the img
+			this.cardBack = document.createElement("div");
 
 
-		this.values.push(this.value);
-		this.cards.push(this.cardEle);
+			this.cardEle.classList.add("card");
+			this.cardFront.classList.add("card-front");
+			this.cardBack.classList.add("card-back");
 
-		this.cardEle = null;
+			// Sets the cardback to a img depening on how far the looped as gone.
+			this.cardBack.style.background = `url(imgs/img-${this.count}.png)`;
+			this.cardBack.style.backgroundSize = "cover";
+
+			// adds the value to the card wrapper
+			this.cardEle.dataset.value = this.value;
+			this.cardEle.appendChild(this.cardFront);
+			this.cardEle.appendChild(this.cardBack);
+
+
+			this.values.push(this.value);
+			this.cards.push(this.cardEle);
+
+			this.cardEle = null;
 
 	} // For loop ends
 	return this.cards;

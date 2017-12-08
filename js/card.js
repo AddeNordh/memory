@@ -119,7 +119,6 @@ Cards.prototype.addTarget = function(target) {
  */
 
 Cards.prototype.compare = function() {
-	console.log(this.targets);
 
 	// get the currnet player from the array containing all the player objects
 	this.player = playersArray[this.track];
@@ -128,7 +127,6 @@ Cards.prototype.compare = function() {
 	this.t1 = this.targets[0].dataset.value;
 	this.t2 = this.targets[1].dataset.value;
 
-	console.log(this.t1, this.t2);
 	// If the card values matches
 	if(this.t1 === this.t2) {
 
